@@ -1,4 +1,4 @@
-const Mastodon = require('Mastodon-api');
+const Mastodon = require('mastodon-api');
 const env = require('dotenv');
 env.config();
 console.log("Mastodon Bot starting...");
