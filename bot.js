@@ -5,9 +5,9 @@ console.log("Mastodon Bot starting...");
 
 
 const M = new Mastodon({
-    client_key: process.env.CLIENT_KEY,
-    client_secret: process.env.CLIENT_SECRET,
-    access_token: process.env.ACCESS_TOKEN,
+    client_key: '99J6VbJT3uGHbkaRHtOF4Bz-CkxGtBsrUChavyW7YXs',
+    client_secret: 'rui6BsrBxCaD5WgtT8uDAPhWXbGEn2geULETbntEihU',
+    access_token: 'Sw9wBkGYW3bJ_D_ShvZ5M6ldiqy2tBmHafKnOpq3_jY', 
     timeout_ms: 60*1000,  // optional HTTP request timeout to apply to all requests.
     api_url: 'https://occm.masto.host/api/v1/', // optional, defaults to https://mastodon.social/api/v1/
   })
