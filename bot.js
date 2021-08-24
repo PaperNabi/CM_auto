@@ -1,13 +1,13 @@
-const Mastodon = require('mastodon-api');
+const Mastodon = require('Mastodon-api');
 const env = require('dotenv');
 env.config();
 console.log("Mastodon Bot starting...");
 
 
 const M = new Mastodon({
-    client_key: '99J6VbJT3uGHbkaRHtOF4Bz-CkxGtBsrUChavyW7YXs',
-    client_secret: 'rui6BsrBxCaD5WgtT8uDAPhWXbGEn2geULETbntEihU',
-    access_token: 'Sw9wBkGYW3bJ_D_ShvZ5M6ldiqy2tBmHafKnOpq3_jY', 
+    client_key:'6Bf0m82xCrH-5EIgAdqmU2yH4C0mInQ1KoJp-64W2BA',
+    client_secret: 'kxTruLNYlkI4zgAhwVHgNKi8EjacHsR_JV1UNryObXo',
+    access_token: 'PJCEco_FE7sRq33MOGbGc9E_-eC-9lD5EkENS3CF_Ec',
     timeout_ms: 60*1000,  // optional HTTP request timeout to apply to all requests.
     api_url: 'https://occm.masto.host/api/v1/', // optional, defaults to https://mastodon.social/api/v1/
   })
@@ -25,31 +25,19 @@ listener.on('message', msg => {
             const acct = msg.data.account.acct;
             const id = msg.data.status.id;
             const content = msg.data.status.content;
-            const bing = ['복숭아 타르트 1개', '치즈케이크 1조각', '딸기가 얹어진 초콜릿 케이크 1조각', '레드 와인', 
-            '논알콜 모히또', '칵테일 카시스 오렌지', '칵테일 롱 아일랜드 아이스티', '포션인 척 하는 과일 음료 딸기맛', 
-            '포션인 척 하는 과일 음료 소다맛', '오렌지맛 탄산 음료', '사과맛 탄산 음료', '마카롱 5개입', 
-            '슈크림 3개입', '잘 포장된 모듬 초밥 10피스', '레몬 소르베', '위스키 봉봉 10입', '다듬어지지 않은 보석 원석', 
-            '보석 가공 도구', '사슴 모양 블루 사파이어 반지', '페리도트 장식 레이스 초커', '웨이브 모양 루비 팔찌', 
-            '눈꽃 모양 옐로 토파즈 귀걸이', '특대형 고양이 인형', '고급 만년필', '말린 하얀 장미 책갈피', '강아지 무늬 튜브', 
-            'LED안경', '고양이 동물 잠옷', '강아지 동물 잠옷', '토끼 동물 잠옷', '라벤더 향초', '분홍색 하트모양 선글라스', 
-            '이 편지는 세타 세계로부터 시작되어…라고 적힌 행운의 편지', '이세계의 벚꽃잎 한 송이', '녹지 않는 작은 눈사람', 
-            '유리병에 꼭 밀봉된 아루루 세계 공기', '가죽 목걸이', '딜도', '에그형 로터', '눈가리개', '채찍', '미약', '저온초', 
-            '메이드복', '집사복', '수영복', '토끼 귀 머리띠', '고양이 귀 머리띠', '볼개그', '초박형 콘돔', '야광 콘돔', '바니옷', 
-            '검은색 속옷', '바나나 패턴 속옷', '검은색 망사 속옷', '플레이용 가죽 수갑', '플레이용 가죽 족갑', '속박용 로프', 
-            '플레이용 안대', '가터벨트', '토끼꼬리 애널 플래그', '역바니옷', '쉽게 지워지는 무성 매직']
+            const bing = ['거인의 발가락', '도금된 사과', '통돼지 구이', '꿀에 절인 사과', '꿀에 절인 포도', '바닷바람을 맞으며 성장한 통통한 올리브 열매', '훈제 연어', '식초에 절인 청어', '포도주', '벌꿀주', '버터에 버무린 으깬 감자', '건포도가 들어간 호밀빵', '무화과 3알', '석류 6알', '양젖으로 만든 치즈', '청어 절임', '황금 사과로 만들었다는 사과잼(황금 사과는 안 들어있다.', '염소 뿔에 담긴 염소 고기 스튜', '나무 막대기', '철봉', '나무판', '빈 병', '숯돌 조각', '안드바리의 도금 반지(매일 도금된 돌멩이가 주변에 생긴다)', '생물 제조 키트(생물 탄생을 위한 생명 별도)', '화려하게 장식된 예식용 검', '반짝이는 보석 한 무더기', '켈트 매듭 장식끈', '동물의 뿔로 만든 나팔', '닭깃털로 만든 날개옷', '황금을 얇게 뽑아 만든 양털', '거미줄로 만든 실타래', '반짝이는 황금잔', '행운을 부른다는 토끼발', '스톤헨지를 본 딴 미니어처', '룬문자가 적힌 부적', '마법의 곰 가죽', '다른 지방의 신화 경전', '동물의 뿔로 만든 활과 화살', '늑대 머리탈', '황금으로 만든 종', '동물의 뼈로 만든 주사위', '화톳불의 신이 내려준 영원히 타오르는 불꽃', '제물로 바쳐진 흰 암소', '밀랍으로 엮은 인조 날개(태양빛에 닿으면 녹아내린다)', '수갑 재료로 진상한 여자의 수염과 산의 뿌리 키트', '마법 진동 딜도', '환상적으로 빛나는 미약', '애널 비즈', '마법 산란 딜도', '산란 딜도 별첨(마법으로 만드는 산란용 알)', '튼튼한 밧줄', '본뜬 양물이 고정된 의자', '최면 동전', '토끼 귀 머리띠', '고양이 귀 머리띠' ,'강아지 귀 머리띠', '양 뿔과 귀 머리띠' , '토끼 꼬리 애널 플러그', '고양이 꼬리 애널 플러그', '강아지 꼬리 애널 플러그', '양 꼬리 애널 플러그', '향초', '미약이 함유된 향유', '에그형 마법 진동 로터', '반투명한 천으로 만든 옷', '상처가 나지 않는 검은 가죽 채찍', '속이 빈 놋쇠 딜도' , '가죽 수갑' , '가죽 족갑']
             const star = bing[Math.floor(Math.random()* bing.length)]
             if (regex1.test(content)) {
                 M.post(`@${acct} 멘션 반응 테스트 `)
                   if (error) console.error(error);
                   else console.log(`mention ${id} ${data.id}`)
             }
-            const regex2 = /거래/i;
+            const regex2 = /공물/i;
             if (regex2.test(content)) {
                 console.log('가챠')
-                const reply = `@${acct} 하얀 별의 계약자가 당신의 대가를 받더니 ${star} 이/가 나타났다. `
+                const reply = `@${acct} 하얀 별의 계약자가 당신의 대가를 받더니 ${star}가 나타났다. `
                 toot(reply);
             }
-
         }
     }
 });
@@ -71,4 +59,3 @@ listener.on('message', msg => {
         }
    });
 }
-
