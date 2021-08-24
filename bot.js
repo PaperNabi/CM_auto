@@ -35,7 +35,7 @@ listener.on('message', msg => {
             const regex2 = /공물/i;
             if (regex2.test(content)) {
                 console.log('가챠')
-                const reply = `@${acct} 하얀 별의 계약자가 당신의 대가를 받더니 ${star}가 나타났다. `
+                const reply = `@${acct} 당신이 요구하자 알브가 저장소에서 【 ${star} 】 을/를 건네주었다. `
                 toot(reply);
             }
         }
